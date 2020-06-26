@@ -33,7 +33,7 @@ public class Main {
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("blackList.txt"))) {
             while ((linesFromResult = bufferedReader.readLine()) != null) {
-                badWords.add(linesFromResult);
+                badWords.add(linesFromResult);                                     //добавляем "черные" слова в LinkedHashSet
             }
 
         } catch (IOException e) {
@@ -42,9 +42,10 @@ public class Main {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("result.txt"))) {
             int flag=0;
             while ((linesFromResult = bufferedReader.readLine()) != null) {
-                if (TextFormater.hasBadWords(linesFromResult, badWords)) {
-                    System.out.println(linesFromResult);
-                    flag++;
+                if (TextFormater.hasBadWords(linesFromResult, badWords)) {  //вызываем метод, куда передаем строку, которую потом положим в
+                    System.out.println(linesFromResult);                     //LinkedHashSet, добавим в нее коллекцию с "черными" словами
+                    flag++;                                                  //и веернем boolean есть ли в коллекции из слов строки элементы из коллекции
+                                                                             //"черных" слов
                 }
             }
             if(flag==0){
