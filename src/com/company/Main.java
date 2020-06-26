@@ -18,7 +18,7 @@ public class Main {
                         if (!item.endsWith(".")) {
                             fileWriter.write(item + " ");
                         } else
-                            fileWriter.write(item + "\n");   //считываем все строки текста в промежуточный файл, где все предложения
+                            fileWriter.write(item + "\n");    //считываем все строки текста в промежуточный файл, где все предложения
                                                                   // с новой строки
                     }
                 } catch (IOException ex) {
@@ -43,8 +43,8 @@ public class Main {
             int flag=0;
             while ((linesFromResult = bufferedReader.readLine()) != null) {
                 if (TextFormater.hasBadWords(linesFromResult, badWords)) {  //вызываем метод, куда передаем строку, которую потом положим в
-                    System.out.println(linesFromResult);                     //LinkedHashSet, добавим в нее коллекцию с "черными" словами
-                    flag++;                                                  //и веернем boolean есть ли в коллекции из слов строки элементы из коллекции
+                    System.out.println(linesFromResult);                     //LinkedHashSet, добавим в эту коллекцию с "черными" словами
+                    flag++;                                                  //и вернем boolean есть ли в коллекции из слов строки элементы из коллекции
                                                                              //"черных" слов
                 }
             }
