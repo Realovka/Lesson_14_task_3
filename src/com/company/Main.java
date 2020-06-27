@@ -42,10 +42,10 @@ public class Main {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("result.txt"))) {
             int flag=0;
             while ((linesFromResult = bufferedReader.readLine()) != null) {
-                if (TextFormater.hasBadWords(linesFromResult, badWords)) {  //вызываем метод, куда передаем строку, которую потом положим в
-                    System.out.println(linesFromResult);                     //LinkedHashSet, добавим в эту коллекцию с "черными" словами
-                    flag++;                                                  //и вернем boolean есть ли в коллекции из слов строки элементы из коллекции
-                                                                             //"черных" слов
+                if (TextFormater.hasBadWords(linesFromResult, badWords)) {  //вызываем метод, куда передаем строку, которую потом помещаем в
+                    System.out.println(linesFromResult);                    //LinkedHashSet. И еще в метод передаем LinkedHashSet из черных слов.
+                    flag++;                                                 //В методе добавляем вторую коллекцию в первую и смотрим,
+                                                                             // изменилась ли первая коллекция
                 }
             }
             if(flag==0){
